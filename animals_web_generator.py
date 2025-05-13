@@ -17,10 +17,12 @@ def get_info():
     output = ""
     for animal in animals_data:
         try:
-            output += (f"Name: {animal["name"]}\n"
-                       f"Diet: {animal["characteristics"]["diet"]}\n"
-                       f"Location: {animal["locations"][0]}\n"
-                       f"Type: {animal["characteristics"]["type"]}\n"
+            output += (f'<li class="cards__item">'
+                       f"Name: {animal["name"]}<br/>\n"
+                       f"Diet: {animal["characteristics"]["diet"]}<br/>\n"
+                       f"Location: {animal["locations"][0]}<br/>\n"
+                       f"Type: {animal["characteristics"]["type"]}<br/>\n"
+                       f"</li>"
                        f"\n")
         except KeyError:
             continue
