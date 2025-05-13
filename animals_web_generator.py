@@ -18,12 +18,13 @@ def get_info():
     for animal in animals_data:
         try:
             output += (f'<li class="cards__item">'
-                       f"Name: {animal["name"]}<br/>\n"
-                       f"Diet: {animal["characteristics"]["diet"]}<br/>\n"
-                       f"Location: {animal["locations"][0]}<br/>\n"
-                       f"Type: {animal["characteristics"]["type"]}<br/>\n"
-                       f"</li>"
-                       f"\n")
+                       f'<div class="card__title">{animal["name"]}</div>\n'
+                       f'<p class="card__text">'
+                       f"<strong>Diet:</strong> {animal["characteristics"]["diet"]}<br/>\n"
+                       f"<strong>Location:</strong> {animal["locations"][0]}<br/>\n"
+                       f"<strong>Type:</strong> {animal["characteristics"]["type"]}<br/>\n"
+                       f"</p>"
+                       f"</li>")
         except KeyError:
             continue
     return output
@@ -38,7 +39,7 @@ def replace_info():
 
 def write_html():
     info = replace_info()
-    with open("animals.html", "a") as new_html:
+    with open("animals.html", "w") as new_html:
         new_html.write(info)
 
 
