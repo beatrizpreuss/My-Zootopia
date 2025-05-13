@@ -19,11 +19,13 @@ def get_info():
         try:
             output += (f'<li class="cards__item">'
                        f'<div class="card__title">{animal["name"]}</div>\n'
-                       f'<p class="card__text">'
-                       f"<strong>Diet:</strong> {animal["characteristics"]["diet"]}<br/>\n"
-                       f"<strong>Location:</strong> {animal["locations"][0]}<br/>\n"
-                       f"<strong>Type:</strong> {animal["characteristics"]["type"]}<br/>\n"
-                       f"</p>"
+                       f'<div class="card__text">'
+                       f"<ul>"
+                       f"<li><strong>Diet:</strong> {animal["characteristics"]["diet"]}</li>\n"
+                       f"<li><strong>Location:</strong> {animal["locations"][0]}</li>\n"
+                       f"<li><strong>Type:</strong> {animal["characteristics"]["type"]}</li>\n"
+                       f"</ul>"
+                       f"</div>"
                        f"</li>")
         except KeyError:
             continue
