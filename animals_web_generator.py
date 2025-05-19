@@ -2,17 +2,19 @@ import json
 
 
 def load_data(file_path):
-  """ Loads a JSON file """
-  with open(file_path, "r") as handle:
-    return json.load(handle)
+    """ Loads a JSON file """
+    with open(file_path, "r", encoding="utf-8") as handle:
+        return json.load(handle)
 
 
 def get_html(html_file):
+    """ Reads the html file """
     html = open(html_file)
     return html.read()
 
 
 def get_info():
+    """ Gets information about each animal in the json file """
     animals_data = load_data('animals_data.json')
     output = ""
     for animal in animals_data:
@@ -33,6 +35,8 @@ def get_info():
 
 
 def replace_info():
+    """ Replaces the placeholder in the original html with the
+    information about the animals """
     original_html = get_html("animals_template.html")
     animals_info = get_info()
     new_html = original_html.replace("__REPLACE_ANIMALS_INFO__", animals_info)
@@ -40,6 +44,7 @@ def replace_info():
 
 
 def write_html():
+    """ Writes a new html file with the replaced information """
     info = replace_info()
     with open("animals.html", "w") as new_html:
         new_html.write(info)
